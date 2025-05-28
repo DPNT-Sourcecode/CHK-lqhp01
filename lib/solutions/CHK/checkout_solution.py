@@ -38,10 +38,7 @@ class CheckoutSolution:
 
         totalCheckout -= ItemPriceMapping["B"] * (ECount // 2) * BCount
 
-        BCount = BCount - (ECount % 2)
-
-        if BCount < 0:
-            BCount = 0
+        BCount = BCount - ((ECount // 2) * BCount)
 
         totalCheckout -= (BCount // 2) * 15
 
@@ -49,6 +46,7 @@ class CheckoutSolution:
 
 
         
+
 
 
 
