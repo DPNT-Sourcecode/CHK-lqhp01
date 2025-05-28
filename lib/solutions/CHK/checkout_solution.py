@@ -40,12 +40,16 @@ class CheckoutSolution:
 
         BCount = BCount - (ECount % 2)
 
+        if BCount < 0:
+            BCount = 0
+
         totalCheckout -= (BCount // 2) * 15
 
         return totalCheckout
 
 
         
+
 
 
 
