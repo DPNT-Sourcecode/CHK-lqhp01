@@ -36,7 +36,7 @@ class CheckoutSolution:
         totalCheckout -= (ACount // 5) * 50
         totalCheckout -= (ACountRemaining // 3) * 20
 
-        totalCheckout -= ItemPriceMapping["B"] * (ECount // 2)
+        totalCheckout -= ItemPriceMapping["B"] * (ECount // 2) * BCount
 
         BCount = BCount - (ECount % 2)
 
@@ -49,6 +49,7 @@ class CheckoutSolution:
 
 
         
+
 
 
 
