@@ -37,14 +37,12 @@ class CheckoutSolution:
 
         totalCheckout -= ItemPriceMapping["B"] * (ECount % 2)
 
+        BCount = BCount - (ECount // 2)
+
         totalCheckout -= (BCount // 2) * 15
 
         return totalCheckout
 
 
         
-
-
-
-
 
