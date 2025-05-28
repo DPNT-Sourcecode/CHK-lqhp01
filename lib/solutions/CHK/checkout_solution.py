@@ -12,6 +12,7 @@ class CheckoutSolution:
             "B": 30,
             "C": 20,
             "D": 15,
+            "E": 40,
         }
 
         ACount = 0
@@ -45,4 +46,5 @@ class CheckoutSolution:
 
 
         
+
 
