@@ -41,10 +41,15 @@ class CheckoutSolution:
         # Count the occurrences of each item
         itemCount = Counter(skus)
 
+        groupDiscountItems = ['S', 'T', 'X', 'Y', 'Z']
+        groupDiscountCosts = []
 
         for item in skus:
             if item not in ItemPriceMapping:
                 return -1
+            
+            if item in groupDiscountItems:
+                groupDiscountCosts.append(ItemPriceMapping[item])
 
             totalCheckout += ItemPriceMapping[item]
 
@@ -93,10 +98,12 @@ class CheckoutSolution:
 
         groupDiscountItems = sum(itemCount["s"], itemCount["T"], itemCount["X"], itemCount["Y"], itemCount["Z"])
 
+
         return totalCheckout
 
 
         
+
 
 
 
