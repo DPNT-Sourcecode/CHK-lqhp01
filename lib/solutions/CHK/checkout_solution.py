@@ -39,7 +39,7 @@ class CheckoutSolution:
         }
 
         # Count the occurrences of each item
-        itemCount = Counter(skus);
+        itemCount = Counter(skus)
 
 
         for item in skus:
@@ -75,11 +75,26 @@ class CheckoutSolution:
         totalCheckout -= freeMs * ItemPriceMapping["M"]
 
         # Apply P discounts
-        totalCheckout -= (itemCount["P"] // 2) * 10
+        totalCheckout -= (itemCount["P"] // 5) * 50
+
+        # Apply Q/R discounts
+        freeQs = min(itemCount["Q"], itemCount["R"] // 3)
+        totalCheckout -= freeQs * ItemPriceMapping["Q"]
+        itemCount["Q"] -= freeQs
+        totalCheckout -= (itemCount["Q"] // 3) * 10
+
+        # Apply U discounts
+        totalCheckout -= (itemCount["U"] // 4) * 40
+
+        # Apply V discounts
+        VCountRemaining = itemCount["V"] % 3
+        totalCheckout -= (itemCount["V"] // 3) * 20
+        totalCheckout -= (VCountRemaining // 2) * 10
 
         return totalCheckout
 
 
         
+
 
 
