@@ -20,7 +20,7 @@ class CheckoutSolution:
             "H": 10,
             "I": 35,
             "J": 60,
-            "K": 80,
+            "K": 70,
             "L": 90,
             "M": 15,
             "N": 40,
@@ -33,9 +33,9 @@ class CheckoutSolution:
             "U": 40,
             "V": 50,
             "W": 20,
-            "X": 90,
-            "Y": 10,
-            "Z": 50
+            "X": 17,
+            "Y": 20,
+            "Z": 21
         }
 
         # Count the occurrences of each item
@@ -68,7 +68,7 @@ class CheckoutSolution:
         totalCheckout -= (HCountRemaining // 5) * 5
 
         # Apply K discounts
-        totalCheckout -= (itemCount["K"] // 2) * 10
+        totalCheckout -= (itemCount["K"] // 2) * 20
 
         # Apply N discounts
         freeMs = min(itemCount["M"], itemCount["N"] // 3)
@@ -91,10 +91,13 @@ class CheckoutSolution:
         totalCheckout -= (itemCount["V"] // 3) * 20
         totalCheckout -= (VCountRemaining // 2) * 10
 
+        groupDiscountItems = sum(itemCount["s"], itemCount["T"], itemCount["X"], itemCount["Y"], itemCount["Z"])
+
         return totalCheckout
 
 
         
+
 
 
 
