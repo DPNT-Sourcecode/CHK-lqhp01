@@ -13,11 +13,13 @@ class CheckoutSolution:
             "C": 20,
             "D": 15,
             "E": 40,
+            "F": 10,
         }
 
         ACount = 0
         BCount = 0
         ECount = 0
+        FCount = 0
 
         for item in skus:
             if item not in ItemPriceMapping:
@@ -29,6 +31,8 @@ class CheckoutSolution:
                 BCount += 1
             elif item == "E":
                 ECount += 1
+            elif item == "F":
+                FCount += 1
 
             totalCheckout += ItemPriceMapping[item]
 
@@ -40,16 +44,15 @@ class CheckoutSolution:
         totalCheckout -= freeBs * ItemPriceMapping["B"]
         BCount -= freeBs
 
-
-        # totalCheckout -= ItemPriceMapping["B"] * (ECount // 2) * BCount
-
-        # BCount = BCount - ((ECount // 2) * BCount)
-
         totalCheckout -= (BCount // 2) * 15
+
+        # 3 F's give 10 discount
+        totalCheckout -= (FCount // 3) * 10
 
         return totalCheckout
 
 
         
+
 
 
