@@ -97,7 +97,7 @@ class CheckoutSolution:
         totalCheckout -= (VCountRemaining // 2) * 10
 
         # Apply group discounts
-        groupDiscountCosts.sort()
+        groupDiscountCosts.sort(reverse=True)
         while len(groupDiscountCosts) >= 3:
             groupDiscount = sum(groupDiscountCosts[:3]) - 45
             totalCheckout -= groupDiscount
@@ -107,6 +107,7 @@ class CheckoutSolution:
 
 
         
+
 
 
 
