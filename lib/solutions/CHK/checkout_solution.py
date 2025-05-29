@@ -1,4 +1,6 @@
 
+from collections import Counter
+
 class CheckoutSolution:
 
     # skus = unicode string
@@ -36,6 +38,9 @@ class CheckoutSolution:
             "Z": 50
         }
 
+        # Count the occurrences of each item
+        itemCount = Counter(skus);
+
         ACount = 0
         BCount = 0
         ECount = 0
@@ -44,15 +49,6 @@ class CheckoutSolution:
         for item in skus:
             if item not in ItemPriceMapping:
                 return -1
-            
-            if item == "A":
-                ACount += 1
-            elif item == "B":
-                BCount += 1
-            elif item == "E":
-                ECount += 1
-            elif item == "F":
-                FCount += 1
 
             totalCheckout += ItemPriceMapping[item]
 
@@ -73,7 +69,4 @@ class CheckoutSolution:
 
 
         
-
-
-
 
