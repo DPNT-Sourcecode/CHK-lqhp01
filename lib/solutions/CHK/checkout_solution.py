@@ -96,13 +96,18 @@ class CheckoutSolution:
         totalCheckout -= (itemCount["V"] // 3) * 20
         totalCheckout -= (VCountRemaining // 2) * 10
 
-        groupDiscountItems = sum(itemCount["s"], itemCount["T"], itemCount["X"], itemCount["Y"], itemCount["Z"])
-
+        # Apply group discounts
+        groupDiscountCosts.sort()
+        while len(groupDiscountCosts) >= 3:
+            groupDiscount = sum(groupDiscountCosts[:3]) - 45
+            totalCheckout -= groupDiscount
+            groupDiscountCosts = groupDiscountCosts[3:]
 
         return totalCheckout
 
 
         
+
 
 
 
