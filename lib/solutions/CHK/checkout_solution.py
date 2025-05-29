@@ -41,10 +41,6 @@ class CheckoutSolution:
         # Count the occurrences of each item
         itemCount = Counter(skus);
 
-        ACount = 0
-        BCount = 0
-        ECount = 0
-        FCount = 0
 
         for item in skus:
             if item not in ItemPriceMapping:
@@ -52,21 +48,38 @@ class CheckoutSolution:
 
             totalCheckout += ItemPriceMapping[item]
 
-        ACountRemaining = ACount % 5
-        totalCheckout -= (ACount // 5) * 50
+        # Apply A dicounts
+        ACountRemaining = itemCount["A"] % 5
+        totalCheckout -= (itemCount["A"] // 5) * 50
         totalCheckout -= (ACountRemaining // 3) * 20
 
-        freeBs = min(BCount, ECount // 2)
+        # Apply B/E discounts
+        freeBs = min(itemCount["B"], itemCount["E"] // 2)
         totalCheckout -= freeBs * ItemPriceMapping["B"]
-        BCount -= freeBs
+        itemCount["B"] -= freeBs
+        totalCheckout -= (itemCount["B"] // 2) * 15
 
-        totalCheckout -= (BCount // 2) * 15
+        # Apply F discounts
+        totalCheckout -= (itemCount["F"] // 3) * 10
 
-        # 3 F's give 10 discount
-        totalCheckout -= (FCount // 3) * 10
+        # Apply H discounts
+        HCountRemaining = itemCount["H"] % 10
+        totalCheckout -= (itemCount["H"] // 10) * 20
+        totalCheckout -= (HCountRemaining // 5) * 5
+
+        # Apply K discounts
+        totalCheckout -= (itemCount["K"] // 2) * 10
+
+        # Apply N discounts
+        freeMs = min(itemCount["M"], itemCount["N"] // 3)
+        totalCheckout -= freeMs * ItemPriceMapping["M"]
+
+        # Apply P discounts
+        totalCheckout -= (itemCount["P"] // 2) * 10
 
         return totalCheckout
 
 
         
+
 
